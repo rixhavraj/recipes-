@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Search - Find Delicious Recipes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Topbar: header + search (sticky) -->
+        <div class="topbar">
+            <!-- Header -->
+            <header class="header">
+                <h1>🍳 Recipe Finder</h1>
+                <p>Search for delicious recipes by ingredients or dish name</p>
+            </header>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search recipes (e.g., pasta, chicken, pizza)..."
+                >
+                <button id="searchBtn" class="search-btn">Search</button>
+                <button id="clearBtn" class="clear-btn">Clear</button>
+            </div>
+        </div>
+
+        <!-- Hero / Banner (added design) -->
+        <section class="hero-banner" aria-label="Welcome banner">
+            <div class="hero-overlay">
+                <h2>Welcome To Our Recipe Collection!</h2>
+                <p class="hero-sub">Search mouth watering recipe to satisfy your craving.</p>
+            </div>
+        </section>
+
+        <!-- Page main content (gets padded so sticky topbar doesn't overlap) -->
+        <main class="main-content">
+
+        <!-- Filter Tags -->
+        <div class="filter-tags">
+            <button class="tag" data-filter="all">All Recipes</button>
+            <button class="tag" data-filter="vegetarian">Vegetarian</button>
+            <button class="tag" data-filter="quick">Quick (< 30 min)</button>
+            <button class="tag" data-filter="dessert">Dessert</button>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-info">
+            <p id="resultsText">Showing <strong>12</strong> recipes</p>
+        </div>
+
+        <!-- Results Section -->
+        <div class="recipes-grid" id="recipesContainer">
+            <!-- Recipes will be loaded here by JavaScript -->
+        </div>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>No recipes found. Try a different search!</p>
+        </div>
+        </main>
+    </div>
+
+    <!-- Recipe Modal -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <img id="modalImage" src="/placeholder.svg" alt="Recipe">
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Ingredients</h3>
+                    <ul id="modalIngredients"></ul>
+                </div>
+                <div class="modal-section">
+                    <h3>Instructions</h3>
+                    <p id="modalInstructions"></p>
+                </div>
+                <div class="modal-info">
+                    <div class="info-item">
+                        <strong>⏱️ Time:</strong> <span id="modalTime"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>👥 Servings:</strong> <span id="modalServings"></span>
+                    </div>
+                    <div class="info-item">
+                        <strong>📊 Difficulty:</strong> <span id="modalDifficulty"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
